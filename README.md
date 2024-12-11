@@ -1,4 +1,4 @@
-# Quiz Game Application
+# Quiz Game
 
 A simple quiz game application built with HTML, CSS, and JavaScript. This application displays multiple-choice questions, tracks the user's progress, and provides immediate feedback on the answers. 
 
