@@ -1,0 +1,99 @@
+/* Apply box-sizing to all elements and pseudo-elements, including ::before and ::after */
+*, *::before, *::after {
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  font-family: Gotham Rounded; /* Sets a custom font for all elements */
+}
+
+/* Define reusable CSS variables for different hues */
+:root {
+  --hue-neutral: 200; /* Neutral blue hue */
+  --hue-wrong: 0; /* Red hue for wrong answers */
+  --hue-correct: 145; /* Green hue for correct answers */
+}
+
+/* Style the body element */
+body {
+  --hue: var(--hue-neutral); /* Default hue is neutral */
+  padding: 0;
+  margin: 0;
+  display: flex; /* Center content using flexbox */
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+  background-color: hsl(var(--hue), 100%, 20%); /* Dynamic background color based on current hue */
+}
+
+/* Change body background color when the 'correct' class is applied */
+body.correct {
+  --hue: var(--hue-correct); /* Set hue to green */
+}
+
+/* Change body background color when the 'wrong' class is applied */
+body.wrong {
+  --hue: var(--hue-wrong); /* Set hue to red */
+}
+
+/* Style the container element */
+.container {
+  width: 800px; /* Set a fixed width */
+  max-width: 80%; /* Allow responsiveness by limiting to 80% of the viewport */
+  background-color: white; /* White background for the container */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Inner spacing */
+  box-shadow: 0 0 10px 2px; /* Subtle shadow for a raised effect */
+}
+
+/* Style a grid for answer buttons */
+.btn-grid {
+  display: grid; /* Use a grid layout */
+  grid-template-columns: repeat(2, auto); /* Create two columns with automatic width */
+  gap: 10px; /* Space between grid items */
+  margin: 20px 0; /* Add spacing above and below the grid */
+}
+
+/* Default style for buttons */
+.btn {
+  --hue: var(--hue-neutral); /* Default button hue */
+  border: 1px solid hsl(var(--hue), 100%, 30%); /* Border color based on hue */
+  background-color: hsl(var(--hue), 100%, 50%); /* Button background color */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Inner spacing */
+  color: white; /* White text color */
+  outline: none; /* Remove default outline on focus */
+}
+
+/* Hover effect for buttons */
+.btn:hover {
+  border-color: black; /* Change border color on hover */
+}
+
+/* Style for buttons when they are marked correct */
+.btn.correct {
+  --hue: var(--hue-correct); /* Green hue for correct buttons */
+  color: black; /* Black text color */
+}
+
+/* Style for buttons when they are marked wrong */
+.btn.wrong {
+  --hue: var(--hue-wrong); /* Red hue for wrong buttons */
+}
+
+/* Specific styles for start and next buttons */
+.start-btn, .next-btn {
+  font-size: 1.5rem; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  padding: 10px 20px; /* Inner spacing for better usability */
+}
+
+/* Style for a container holding control buttons */
+.controls {
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center controls horizontally */
+  align-items: center; /* Center controls vertically */
+}
+
+/* Utility class to hide elements */
+.hide {
+  display: none; /* Completely hide the element */
+}
